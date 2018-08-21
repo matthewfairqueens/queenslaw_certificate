@@ -1,0 +1,31 @@
+/* Scss Document */
+
+#superheader .block-backtoqueensuniversityfacultyoflaw-2 {
+  min-width: 0;
+  width: 100%;
+}
+
+body.queenslaw-sub-site #branding {
+  padding-bottom: 20px;
+  margin-top: 0;
+  top: 0;
+}
+#branding + div {
+  float: none;
+}
+
+#block-mainnavigation .small-screen-nav-trigger {
+  background: transparent url(../nav-trigger-bg.png) scroll no-repeat 10px 50%;
+}
+body.queenslaw-sub-site #header .submenu a {
+  color: #fff;
+}
+#block-secondarynavigation ul {
+  padding: 0 20px;
+}
+#block-mainnavigation .small-screen-nav-trigger {
+  top: 27px;
+}
+body.queenslaw-sub-site #header #block-mainnavigation .menu-item--statement {
+    display: none !important;
+}

@@ -1,0 +1,153 @@
+$one-third: 33.33333333%;
+$two-thirds: 66.66666667%;
+$bold-font-weight: 600;
+$white: #fff;
+$dark-grey: #333;
+$red: #9d1939;
+$blue: #11335d;
+$yellow: #eebd31;
+$default-block-padding: 0 20px;
+$min-width: 960px;
+
+@mixin border-radius($border-radius) {
+  -webkit-border-radius: $border-radius;
+  -moz-border-radius: $border-radius;
+  -ms-border-radius: $border-radius;
+  border-radius: $border-radius;
+}
+@mixin clearfix() {
+  content: '.';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+body.queenslaw-sub-site #header {
+  background-color: $blue;
+  .menu-item--statement {
+    display: none;
+  }
+}
+// ***** temporary until the main site launches and the syndicated block can be re-enabled
+#superheader {
+  .block-backtoqueensuniversityfacultyoflaw-2 {
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: $default-block-padding;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    min-width: $min-width;
+    text-align: right;
+    > div {
+      padding: $default-block-padding;
+    }
+    a {
+      font-weight: $bold-font-weight;
+      color: $red;
+      .ext {
+        display: none;
+      }
+    }
+    a:before {
+      content: '\f137';
+      margin-right: 0.5em;
+      font-family: FontAwesome;
+      font-size: 0.75em;
+    }
+  }
+}
+.node--view-mode-detail .field--name-field-category {
+  .field__items * {
+    display: inline;
+  }
+  .field__item:after {
+    content: ',';
+  }
+  .field__item:last-child:after {
+    content: '';
+  }
+}
+body.front #main {
+  .node--view-mode-full {
+    .field {
+      margin-bottom: 0;
+    }
+  }
+  .queenslaw-alternate-teasers {
+    .teaser {
+      .queenslaw-teasers .views-row {
+        padding: 0;
+        width: auto;
+        .teaser-image,
+        footer .bundle,
+        footer .category {
+          display: none;
+        }
+        h4 {
+          margin: 8px 0 4px 0;
+          font-size: 1.25em;
+          a {
+            font-weight: $bold-font-weight;
+          }
+        }
+      }
+    }
+    .teaser:nth-child(3) {
+      background-color: $yellow;
+      float: right;
+      color: $dark_grey;
+      a {
+        color: $dark_grey;
+      }
+      ul.links.inline li.node-readmore a {
+        border-color: $dark_grey;
+      }
+    }
+    .teaser:nth-child(n+4) {
+      height: 400px;
+    }
+    .teaser:nth-child(4),
+    .teaser:nth-child(5) {
+      width: 50%;
+    }
+    .teaser:nth-child(7) {
+      float: right;
+    }
+/* Chrome doesn't seem to be able to do math correctly with one of the teasers floated
+   right, so add a background color to conceal that fact. */
+    background-color: $red;
+  }
+  .queenslaw-alternate-teasers:after {
+    @include clearfix();
+  }
+}
+#sidebar .node--view-mode-detail .field--name-field-link a {
+  display: inline-block;
+  background-color: $red;
+  padding: 8px 24px;
+  line-height: 1;
+  text-decoration: none;
+  color: $white;
+  @include border-radius(4px);
+}
+#sidebar .node--view-mode-detail .field--name-field-audio audio + a {
+  display: block;
+  margin-top: 12px;
+}
+.block-mailinglist-alt {
+  margin-bottom: 48px;
+  padding: 0 20px;
+  form {
+    div {
+      display: inline-block;
+      margin: 16px 0 0 0;
+      div {
+        margin: 0 1em 0 0;
+      }
+    }
+    label {
+      display: none;
+    }
+  }
+}

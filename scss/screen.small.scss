@@ -1,0 +1,104 @@
+/* Scss Document */
+
+#superheader .block-backtoqueensuniversityfacultyoflaw > div {
+  padding: 0;
+}
+#superheader .block-backtoqueensuniversityfacultyoflaw a {
+  font-size: 13px;
+}
+#superheader .block-backtoqueensuniversityfacultyoflaw-2 > div {
+  padding: 0;
+}
+#superheader .block-backtoqueensuniversityfacultyoflaw-2 a {
+  font-size: 13px;
+}
+#header {
+  height: auto;
+}
+#header > div {
+  padding-top: 0;
+}
+
+body.queenslaw-sub-site #branding {
+  padding: 20px;
+  top: 0;
+}
+#branding {
+  max-width: 230px;
+  margin-left: 0;
+}
+#branding .block-logo svg,
+#branding .block svg {
+  height: 30px;
+}
+#branding .block-queensuniversity {
+  padding-right: 10px;
+}
+#branding div + .block-logo {
+  padding-left: 10px;
+}
+//#branding .block img {
+//  height: 40px !important;
+//}
+//#branding .block-system img {
+//  height: 20px !important;
+//}
+//#branding + div {
+//  padding: 0;
+//}
+#block-mainnavigation > ul {
+  padding: 0 20px;
+  margin: 0 0 20px 0;
+}
+#block-mainnavigation .small-screen-nav-trigger {
+  top: 21px;
+  right: 20px;
+}
+body.queenslaw-sub-site #header .submenu a {
+  font-size: 16px;
+}
+body.has-queenslaw-alternate-teasers #main .queenslaw-teasers .teaser,
+body.front #main .queenslaw-alternate-teasers .teaser:nth-child(n+4),
+body.front #main .queenslaw-alternate-teasers .teaser:nth-child(4), 
+body.front #main .queenslaw-alternate-teasers .teaser:nth-child(5) {
+  width: 100%;
+  height: auto;
+  min-height: 110px;
+}
+.view-taxonomy-term h3 + footer, .queenslaw-teasers h3 + footer {
+  margin: 0;
+}
+
+.block-mailinglist-alt {
+  padding: 0;
+}
+
+.block-views-block-page-title-block .page-title-image-caption, 
+.block-pagetitle .page-title-image-caption {
+  margin-right: 0;
+}
+.block-views-block-page-title-block .page-title-image-caption .caption, 
+.block-pagetitle .page-title-image-caption .caption {
+  text-align: left;
+  padding: 15px 20px 0 20px;
+}
+
+.page-node-type-podcast .field--name-field-audio {
+  margin: 15px 0;
+}
+.page-node-type-podcast .field--name-field-audio .field__label {
+  display: none;
+}
+audio {
+  max-width: 280px;
+}
+
+input[type="button"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+body.queenslaw-sub-site #header #block-mainnavigation .menu-item--statement {
+    display: none !important;
+}

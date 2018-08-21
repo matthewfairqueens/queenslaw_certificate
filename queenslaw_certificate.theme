@@ -1,0 +1,32 @@
+<?php
+/**
+ * Implements template_preprocess_node().
+ *
+ * Set the header level and determine whether to link the title based on the node type.
+ * Add a link to the landing page for node types for which a landing page is set (via the
+ * queenslaw_certificate_misc module).
+ */
+function queenslaw_certificate_preprocess_node(&$variables) {
+  $type = $variables['node']->getType();
+  $view_mode = $variables['view_mode'];
+  $variables['display_header'] = TRUE;
+  $variables['header_level'] = 3;
+  $variables['header_linked'] = TRUE;
+  $variables['display_submitted'] = FALSE;
+  if (in_array($view_mode, ['detail'])) $variables['display_header'] = FALSE;
+  if (in_array($type, ['notification'])) $variables['header_linked'] = FALSE;
+  elseif (in_array($type, ['blog', 'podcast'])) {
+    // with caching on, isFrontPage() only works with this cache context set
+    $variables['#cache']['contexts'][] = 'url.path.is_front';
+    if (\Drupal::service('path.matcher')->isFrontPage()) $variables['header_level'] = 4;
+    $variables['display_submitted'] = TRUE;
+    if (function_exists('queenslaw_certificate_misc_landing_page_link') && ($bundle = queenslaw_certificate_misc_landing_page_link($type))) $variables['bundle'] = $bundle;
+    $category_fields = ['category'];
+    foreach ($category_fields as $category_field) {
+      if (isset($variables['content']) && (isset($variables['content']["field_{$category_field}"]))) {
+        $variables['category'] = render($variables['content']["field_{$category_field}"]);
+        $variables['content']["field_{$category_field}"] = [];
+      }
+    }
+  }
+}
