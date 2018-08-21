@@ -2,7 +2,7 @@
   "name": "drupal/queenslaw_certificate",
   "description": "A custom theme developed for the Queen's University Faculty of Law Certificate website by Purely Interactive.",
   "type": "drupal-custom-theme",
-  "homepage": "http://certificate.law.queensu.ca/",
+  "homepage": "http://law.queensu.ca/",
   "authors": [
     {
       "name": "Noah St. Amand",
