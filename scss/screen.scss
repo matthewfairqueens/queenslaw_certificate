@@ -151,3 +151,20 @@ body.front #main {
     }
   }
 }
+
+.node__meta {
+  margin-bottom: 4px;
+  font-size: 0.875em;
+  * {
+    display: inline;
+  }
+  h3 {
+    display: block;
+  }
+  .field__item::after {
+    content: none;
+  }
+  .field__item:first-of-type::after {
+    content: none;
+  }
+}
