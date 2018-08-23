@@ -122,24 +122,18 @@ body.front #main {
     @include clearfix();
   }
 }
-#sidebar .node--view-mode-detail {
-  .field--name-field-link a {
-    display: inline-block;
-    background-color: $red;
-    padding: 8px 24px;
-    line-height: 1;
-    text-decoration: none;
-    color: $white;
-    @include border-radius(4px);
-  }
-  .field--name-field-audio audio + a {
-    display: block;
-    margin-top: 12px;
-  }
-  .node__meta .field__item:first-child:before {
-    content: '';
-    margin-right: 0;
-  }
+#sidebar .node--view-mode-detail .field--name-field-link a {
+  display: inline-block;
+  background-color: $red;
+  padding: 8px 24px;
+  line-height: 1;
+  text-decoration: none;
+  color: $white;
+  @include border-radius(4px);
+}
+#sidebar .node--view-mode-detail .field--name-field-audio audio + a {
+  display: block;
+  margin-top: 12px;
 }
 .block-mailinglist-alt {
   margin-bottom: 48px;
@@ -155,5 +149,22 @@ body.front #main {
     label {
       display: none;
     }
+  }
+}
+
+.node__meta {
+  margin-bottom: 4px;
+  font-size: 0.875em;
+  * {
+    display: inline;
+  }
+  h3 {
+    display: block;
+  }
+  .field__item::after {
+    content: none;
+  }
+  .field__item:first-of-type::after {
+    content: none;
   }
 }
