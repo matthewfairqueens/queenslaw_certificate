@@ -64,6 +64,9 @@ body.front #main {
           }
         }
       }
+    .teaser.has-teaser-image > .content {
+    background-color: rgba(0, 0, 0, 0.33334);
+  }
     }
     .teaser:nth-child(3) {
       background-color: $yellow;
