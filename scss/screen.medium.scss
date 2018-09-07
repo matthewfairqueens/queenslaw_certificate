@@ -1,3 +1,11 @@
+/* Scss Document */
+body.queenslaw-sub-site #header {
+  height: 100px;
+}
+#header > div #branding {
+  top: 4px;
+  margin-top: 0;
+}
 body.queenslaw-sub-site #branding {
   padding-bottom: 20px;
   margin-top: 0;
@@ -7,7 +15,7 @@ body.queenslaw-sub-site #branding {
   float: none;
 }
 #block-mainnavigation .small-screen-nav-trigger {
-  background: transparent url(../nav-trigger-bg.png) scroll no-repeat 10px 50%;
+  background: transparent url(/themes/custom/queenslaw_certificate/nav-trigger-bg.png) scroll no-repeat 10px 50% !important;
 }
 body.queenslaw-sub-site #header .submenu a {
   color: #fff;
@@ -20,4 +28,14 @@ body.queenslaw-sub-site #header .submenu a {
 }
 body.queenslaw-sub-site #header #block-mainnavigation .menu-item--statement {
   display: none !important;
+}
+.queenslaw-teasers .teaser:nth-child(2n + 1), 
+.queenslaw-teasers .views-row:nth-child(2n + 1) {
+  clear: none;
+}
+body.front #main .queenslaw-alternate-teasers .teaser:nth-child(n+4) {
+  height: 500px;
+}
+#header > div .header-content #block-mainnavigation .submenu li a.is-active {
+  color: #fff;
 }
