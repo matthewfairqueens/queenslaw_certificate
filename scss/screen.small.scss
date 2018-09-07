@@ -1,5 +1,4 @@
 /* Scss Document */
-
 #superheader .block-backtoqueensuniversityfacultyoflaw > div {
   padding: 0;
 }
@@ -50,9 +49,12 @@ body.queenslaw-sub-site #branding {
   padding: 0 20px;
   margin: 0 0 20px 0;
 }
-#block-mainnavigation .small-screen-nav-trigger {
-  top: 21px;
+#header > div .header-content #block-mainnavigation .small-screen-nav-trigger {
+  top: 38px;
   right: 20px;
+}
+body.queenslaw-sub-site #header {
+  height: auto;
 }
 body.queenslaw-sub-site #header .submenu a {
   font-size: 16px;
@@ -101,4 +103,7 @@ input[type="button"] {
 
 body.queenslaw-sub-site #header #block-mainnavigation .menu-item--statement {
     display: none !important;
+}
+#header > div .header-content #block-mainnavigation .submenu li a.is-active {
+  color: #fff;
 }
