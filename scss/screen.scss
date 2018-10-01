@@ -29,6 +29,21 @@ body.queenslaw-sub-site #header {
     display: none;
   }
 }
+
+body.has-queenslaw-alternate-teasers #main .queenslaw-teasers .teaser:nth-child(4) > .content {
+  background-color: rgba(0,0,0,0.03667);
+}
+
+body.has-queenslaw-alternate-teasers #main .queenslaw-teasers .teaser:nth-child(4) {
+  color: #000;
+  text-shadow: 0px 0px 6px white;
+  a {
+    color: #000;
+    text-shadow: 0px 0px 4px white;
+    display: none;
+  }
+}
+
 .node--view-mode-detail .field--name-field-category {
   .field__items * {
     display: inline;
