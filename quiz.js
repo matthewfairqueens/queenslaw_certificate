@@ -318,7 +318,7 @@ function calculateResults() {
 	}
 	console.log(tally);
 	console.log(winner);
-	$('#quizResults').show().html(tally[personType]['courses']);
+	$('#quizResults').show().html(tally[winner['type']]['courses']);
 }
 
 
