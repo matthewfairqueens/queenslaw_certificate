@@ -275,7 +275,7 @@ function buildQuiz() {
 		}
 		output = output + '</div><a onclick="currentQuestion--; changeQuestion();" class="button -small -blue -left">Previous</a><a onclick="currentQuestion++; changeQuestion();" class="button -small -blue -right">Next</a></div>';
 	}
-	output = output + '<div style="display: none;" id="quizResults"></div>';
+	output = output + '<div id="quizResults"></div>';
 	$('#certificateBundleQuiz').html(output);
 	changeQuestion();
 
@@ -284,9 +284,9 @@ function buildQuiz() {
 function changeQuestion() {
 	$('.quizQuestion').hide();
 	$('#question'+currentQuestion).show();
-	if (currentQuestion==10) {
+	//if (currentQuestion==10) {
 		calculateResults();
-	}
+	//}
 }
 
 function calculateResults() {
@@ -297,7 +297,7 @@ function calculateResults() {
 		"Concerned Citizen" : {"answers" : [], "total" : 0, "courses" : "<h3>Solid Citizen</h3><p>Being an active and involved citizen means knowing the law and your rights – and the Certificate in Law is the perfect way to do that. </p><p><strong>Introduction to Canadian Law:</strong> Learn the basics of legal essentials that will serve you as an informed citizen, ranging from how to conduct basic legal research to criminal law, contract law, and more. <br /><strong>Public & Constitutional Law:</strong> Understand how power is structured in Canada, from the military through to the police, through an in-depth look at federal, provincial, and municipal government structures.<br /><strong>Aboriginal Law:</strong> Get to know the complex history of Canada’s first peoples and their relationship with the law – treaties, agreements, and their current standing in Canadian law. <br /><strong>Workplace Law:</strong> We spend 33% of our lives at work – make the most of it by understanding how the law operates for employers and employees alike.</p>"},
 		"Creative" : {"answers" : [], "total" : 0, "courses" : "<h3>Creative</h3><p>You’re born to make – whether it’s a life-changing song or a killer app. Learn how the law works (and doesn’t work) for Canada’s creative class. </p><p><strong>Intellectual Property:</strong> Protect your ideas! Learn about the “big three” of IP: patents, contracts, and trademarks, and how to properly protect your work while legally using that of others. <br /><strong>Introduction to Canadian Law:</strong> A full toolkit of legal essentials for living in Canada, from legal research basics to essential contract and tort law. <br /><strong>Corporate Law:</strong> From a side hustle to a start-up, understanding these business basics will set you up to either make the most of your own work, or effectively partner with those who can. <br /><strong>Workplace Law:</strong> If you’re going places, you’re employing others to help you get there. Learn about the rights and responsibilities of employers and employees alike.</p>"}
 	};
-	for (var i=0;i<quizStc.length;i++) {
+	for (var i=0;i<currentQuestion;i++) {
 		tally['Entrepreneur']['answers'][i] = quizStc[i]['response'][0];
 		tally['Changemaker']['answers'][i] = quizStc[i]['response'][1];
 		tally['Globetrotter']['answers'][i] = quizStc[i]['response'][2];
@@ -318,7 +318,10 @@ function calculateResults() {
 	}
 	console.log(tally);
 	console.log(winner);
-	$('#quizResults').show().html(tally[winner['type']]['courses']);
+	if (winner['total'] > 0) {
+		scoreOutput = '<p style="clear: both;">&nbsp;</p>Entrepreneur: ' + tally['Entrepreneur']['total'] + ', Changemaker: ' + tally['Changemaker']['total'] + ', Globetrotter: ' + tally['Globetrotter']['total'] + ', Concerned Citizen: ' + tally['Concerned Citizen']['total'] + ', Creative: ' + tally['Creative']['total'] + '<br /><br /><h2>Results:</h2>' + tally[winner['type']]['courses']
+		$('#quizResults').show().html(scoreOutput);
+	}
 }
 
 
