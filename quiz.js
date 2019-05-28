@@ -1,7 +1,7 @@
 currentQuestion = 0;
 quizStc = [
 	{
-		"question" : "What's your idea of a perfect night?",
+		"question" : ["What's your idea of a perfect night?","/sites/certificate/files/img/bundle-quiz/default.jpg"],
 		"answers" : [
 			[
 				"A quiet night at home",
@@ -27,7 +27,7 @@ quizStc = [
 		"response" : []
 	},
 	{
-		"question" : "Choose a superpower:",
+		"question" : ["Choose a superpower:","/sites/certificate/files/img/bundle-quiz/default.jpg"],
 		"answers" : [
 			[
 				"Flight",
@@ -53,7 +53,7 @@ quizStc = [
 		"response" : []
 	},
 	{
-		"question" : "What motivates you?",
+		"question" : ["What motivates you?","/sites/certificate/files/img/bundle-quiz/default.jpg"],
 		"answers" : [
 			[
 				"Money",
@@ -79,7 +79,7 @@ quizStc = [
 		"response" : []
 	},
 	{
-		"question" : "How do you solve a problem?",
+		"question" : ["How do you solve a problem?","/sites/certificate/files/img/bundle-quiz/default.jpg"],
 		"answers" : [
 			[
 				"Hire somebody to solve it",
@@ -105,7 +105,7 @@ quizStc = [
 		"response" : []
 	},
 	{
-		"question" : "If somebody gave you $5000, how would you spend it?",
+		"question" : ["If somebody gave you $5000, how would you spend it?","/sites/certificate/files/img/bundle-quiz/default.jpg"],
 		"answers" : [
 			[
 				"Start a new small business",
@@ -131,7 +131,7 @@ quizStc = [
 		"response" : []
 	},
 	{
-		"question" : "What do you do at parties?",
+		"question" : ["What do you do at parties?","/sites/certificate/files/img/bundle-quiz/default.jpg"],
 		"answers" : [
 			[
 				"Learn as much as I can about everyone I talk to",
@@ -157,7 +157,7 @@ quizStc = [
 		"response" : []
 	},
 	{
-		"question" : "What's the most important thing about a new idea?",
+		"question" : ["What's the most important thing about a new idea?","/sites/certificate/files/img/bundle-quiz/default.jpg"],
 		"answers" : [
 			[
 				"Will it succeed and be profitable?",
@@ -183,7 +183,7 @@ quizStc = [
 		"response" : []
 	},
 	{
-		"question" : "Your friend has a problem at work. What do you do?",
+		"question" : ["Your friend has a problem at work. What do you do?","/sites/certificate/files/img/bundle-quiz/default.jpg"],
 		"answers" : [
 			[
 				"Encourage them to strike out on their own",
@@ -209,7 +209,7 @@ quizStc = [
 		"response" : []
 	},
 	{
-		"question" : "What's a must-have quality for a new friend?",
+		"question" : ["What's a must-have quality for a new friend?","/sites/certificate/files/img/bundle-quiz/default.jpg"],
 		"answers" : [
 			[
 				"Knowledge and skills I don't have",
@@ -235,7 +235,7 @@ quizStc = [
 		"response" : []
 	},
 	{
-		"question" : "What's your leadership style?",
+		"question" : ["What's your leadership style?","/sites/certificate/files/img/bundle-quiz/default.jpg"],
 		"answers" : [
 			[
 				"Dynamic: I'm out front and providing vision",
@@ -269,7 +269,7 @@ function buildQuiz() {
 	output = '';
 	
 	for (var i=0;i<quizStc.length;i++) {
-		output = output + '<div class="quizQuestion" id="question' + i +'"><h3>Question ' + (i + 1) + ' of 10: ' +quizStc[i]["question"] + '</h3><div class="quizAnswers">';
+		output = output + '<div class="quizQuestion" id="question' + i +'"><img alt="' + quizStc[i]["question"][0] + '" src="' + quizStc[i]["question"][1] + '" /><h3>Question ' + (i + 1) + ' of 10: ' + quizStc[i]["question"][0] + '</h3><div class="quizAnswers">';
 		for (var j=0;j<5;j++) {
 			output = output + '<input name="question' + i + '" type="radio" value="' + quizStc[i]["answers"][j][1] + '" onclick="quizStc[' + i + '][\'response\'] = this.value.split(\',\'); currentQuestion++; changeQuestion();"> ' + quizStc[i]["answers"][j][0] + '</input></br>';
 		}
