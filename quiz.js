@@ -4,10 +4,6 @@ quizStc = [
 		"question" : ["What's your idea of a perfect night?","/sites/certificate/files/img/bundle-quiz/default.jpg"],
 		"answers" : [
 			[
-				"A quiet night at home",
-				["2","1","3","4","0"]
-			],
-			[
 				"Writing, painting, or otherwise creating",
 				["3","2","1","0","4"]
 			],
@@ -23,6 +19,10 @@ quizStc = [
 				"Time with friends",
 				["0","4","3","1","2"]
 			],
+			[
+				"A quiet night at home",
+				["2","1","3","4","0"]
+			],
 		],
 		"response" : []
 	},
@@ -32,10 +32,6 @@ quizStc = [
 			[
 				"Flight",
 				["1","2","4","0","3"]
-			],
-			[
-				"Reading minds",
-				["1","0","2","3","4"]
 			],
 			[
 				"Invulnerability",
@@ -48,6 +44,10 @@ quizStc = [
 			[
 				"Mind control",
 				["0","4","3","2","1"]
+			],
+			[
+				"Reading minds",
+				["1","0","2","3","4"]
 			],
 		],
 		"response" : []
@@ -64,16 +64,16 @@ quizStc = [
 				["3","4","2","1","0"]
 			],
 			[
-				"Work/life balance",
-				["0","4","3","2","1"]
-			],
-			[
 				"Family",
 				["1","3","0","4","2"]
 			],
 			[
 				"Creative freedom",
 				["3","1","2","0","4"]
+			],
+			[
+				"Work/life balance",
+				["0","4","3","2","1"]
 			],
 		],
 		"response" : []
@@ -94,12 +94,12 @@ quizStc = [
 				["0","4","3","1","2"]
 			],
 			[
-				"Do without or work around it",
-				["1","3","2","4","0"]
-			],
-			[
 				"Research it exhaustively",
 				["1","3","4","2","0"]
+			],
+			[
+				"Do without or work around it",
+				["1","3","2","4","0"]
 			],
 		],
 		"response" : []
@@ -134,10 +134,6 @@ quizStc = [
 		"question" : ["What do you do at parties?","/sites/certificate/files/img/bundle-quiz/default.jpg"],
 		"answers" : [
 			[
-				"Learn as much as I can about everyone I talk to",
-				["4","3","0","1","2"]
-			],
-			[
 				"Talk to people who look as uncomfortable as I am",
 				["0","4","1","3","2"]
 			],
@@ -153,6 +149,10 @@ quizStc = [
 				"Start a singalong, group activity, or conga line",
 				["3","2","1","0","4"]
 			],
+			[
+				"Learn as much as I can about everyone I talk to",
+				["4","3","0","1","2"]
+			],
 		],
 		"response" : []
 	},
@@ -162,10 +162,6 @@ quizStc = [
 			[
 				"Will it succeed and be profitable?",
 				["4","1","2","3","0"]
-			],
-			[
-				"Will it help people?",
-				["0","4","1","2","3"]
 			],
 			[
 				"Does it lead to new inventions or ideas?",
@@ -178,6 +174,10 @@ quizStc = [
 			[
 				"Is it out-of-the-box creative and different?",
 				["2","0","1","3","4"]
+			],
+			[
+				"Will it help people?",
+				["0","4","1","2","3"]
 			],
 		],
 		"response" : []
@@ -194,16 +194,16 @@ quizStc = [
 				["2","4","0","3","1"]
 			],
 			[
-				"Ask if they've considered switching careers",
-				["1","3","4","2","0"]
-			],
-			[
 				"Tell them to stick with it and weather the storm",
 				["0","2","1","4","3"]
 			],
 			[
 				"Come up with ideas to solve it",
 				["3","0","2","1","4"]
+			],
+			[
+				"Ask if they've considered switching careers",
+				["1","3","4","2","0"]
 			],
 		],
 		"response" : []
@@ -224,12 +224,12 @@ quizStc = [
 				["2","1","4","0","3"]
 			],
 			[
-				"Traditional and shared values",
-				["0","2","3","4","1"]
-			],
-			[
 				"Creativity and expressiveness",
 				["3","0","1","2","4"]
+			],
+			[
+				"Traditional and shared values",
+				["0","2","3","4","1"]
 			],
 		],
 		"response" : []
