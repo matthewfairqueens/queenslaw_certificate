@@ -2,6 +2,7 @@ currentQuestion = 0;
 quizStc = [
 	{
 		"question" : ["What's your idea of a perfect night?","/sites/certificate/files/img/bundle-quiz/default.jpg"],
+		"type" : "checkbox",
 		"answers" : [
 			[
 				"Writing, painting, or otherwise creating",
@@ -28,6 +29,7 @@ quizStc = [
 	},
 	{
 		"question" : ["Choose a superpower:","/sites/certificate/files/img/bundle-quiz/default.jpg"],
+		"type" : "checkbox",
 		"answers" : [
 			[
 				"Flight",
@@ -54,6 +56,7 @@ quizStc = [
 	},
 	{
 		"question" : ["What motivates you?","/sites/certificate/files/img/bundle-quiz/default.jpg"],
+		"type" : "checkbox",
 		"answers" : [
 			[
 				"Money",
@@ -80,6 +83,7 @@ quizStc = [
 	},
 	{
 		"question" : ["How do you solve a problem?","/sites/certificate/files/img/bundle-quiz/default.jpg"],
+		"type" : "radio",
 		"answers" : [
 			[
 				"Hire somebody to solve it",
@@ -106,6 +110,7 @@ quizStc = [
 	},
 	{
 		"question" : ["If somebody gave you $5000, how would you spend it?","/sites/certificate/files/img/bundle-quiz/default.jpg"],
+		"type" : "radio",
 		"answers" : [
 			[
 				"Start a new small business",
@@ -132,6 +137,7 @@ quizStc = [
 	},
 	{
 		"question" : ["What do you do at parties?","/sites/certificate/files/img/bundle-quiz/default.jpg"],
+		"type" : "radio",
 		"answers" : [
 			[
 				"Talk to people who look as uncomfortable as I am",
@@ -158,6 +164,7 @@ quizStc = [
 	},
 	{
 		"question" : ["What's the most important thing about a new idea?","/sites/certificate/files/img/bundle-quiz/default.jpg"],
+		"type" : "radio",
 		"answers" : [
 			[
 				"Will it succeed and be profitable?",
@@ -184,6 +191,7 @@ quizStc = [
 	},
 	{
 		"question" : ["Your friend has a problem at work. What do you do?","/sites/certificate/files/img/bundle-quiz/default.jpg"],
+		"type" : "radio",
 		"answers" : [
 			[
 				"Encourage them to strike out on their own",
@@ -210,6 +218,7 @@ quizStc = [
 	},
 	{
 		"question" : ["What's a must-have quality for a new friend?","/sites/certificate/files/img/bundle-quiz/default.jpg"],
+		"type" : "radio",
 		"answers" : [
 			[
 				"Knowledge and skills I don't have",
@@ -236,6 +245,7 @@ quizStc = [
 	},
 	{
 		"question" : ["What's your leadership style?","/sites/certificate/files/img/bundle-quiz/default.jpg"],
+		"type" : "radio",
 		"answers" : [
 			[
 				"Dynamic: I'm out front and providing vision",
@@ -271,7 +281,7 @@ function buildQuiz() {
 	for (var i=0;i<quizStc.length;i++) {
 		output = output + '<div class="quizQuestion" id="question' + i +'"><!-- <img alt="' + quizStc[i]["question"][0] + '" src="' + quizStc[i]["question"][1] + '" align="right" /> --><h3>Question ' + (i + 1) + ' of 10: ' + quizStc[i]["question"][0] + '</h3><div class="quizAnswers">';
 		for (var j=0;j<5;j++) {
-			output = output + '<input name="question' + i + '" type="radio" value="' + quizStc[i]["answers"][j][1] + '" onclick="quizStc[' + i + '][\'response\'] = this.value.split(\',\'); currentQuestion++; changeQuestion();"> ' + quizStc[i]["answers"][j][0] + '</input></br>';
+			output = output + '<input name="question' + i + '" type="' + quizStc[i]["type"] + '" value="' + quizStc[i]["answers"][j][1] + '" onclick="quizStc[' + i + '][\'response\'] = this.value.split(\',\'); currentQuestion++; changeQuestion();"> ' + quizStc[i]["answers"][j][0] + '</input></br>';
 		}
 		output = output + '</div>';
 		if ( i > 0 ) {
