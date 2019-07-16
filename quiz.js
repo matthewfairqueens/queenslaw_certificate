@@ -281,13 +281,13 @@ function buildQuiz() {
 	for (var i=0;i<quizStc.length;i++) {
 		output = output + '<div class="quizQuestion" id="question' + i +'"><!-- <img alt="' + quizStc[i]["question"][0] + '" src="' + quizStc[i]["question"][1] + '" align="right" /> --><h3>Question ' + (i + 1) + ' of 10: ' + quizStc[i]["question"][0] + '</h3><div class="quizAnswers">';
 		for (var j=0;j<5;j++) {
-			output = output + '<input name="question' + i + '" type="' + quizStc[i]["type"] + '" value="' + quizStc[i]["answers"][j][1] + '" onclick="quizStc[' + i + '][\'response\'] = this.value.split(\',\'); currentQuestion++; changeQuestion();"> ' + quizStc[i]["answers"][j][0] + '</input></br>';
+			output = output + '<input name="question' + i + '" type="' + quizStc[i]["type"] + '" value="' + quizStc[i]["answers"][j][1] + '"> ' + quizStc[i]["answers"][j][0] + '</input><br />';
 		}
-		output = output + '</div>';
+		output = output + '<a onclick="saveAnswer(); currentQuestion++; changeQuestion();" class="button -small -blue -left -next' + i +'">Save and Next</a><br style="clear: both;" /></div>';
 		if ( i > 0 ) {
-			output = output + '<a onclick="currentQuestion--; changeQuestion();" class="button -small -blue -left -previous' + i + '">Previous</a>';
+			output = output + '<a onclick="saveAnswer(); currentQuestion--; changeQuestion();" class="button -small -blue -left -previous' + i + '">Previous</a>';
 		}
-		output = output + '<a onclick="currentQuestion++; changeQuestion();" class="button -small -blue -left -next' + i + '" style="display: none;">Next</a></div>';
+		output = output + '<a onclick="saveAnswer(); currentQuestion++; changeQuestion();" class="button -small -blue -left -next' + i + '" style="display: none;">Next</a></div>';
 	}
 	output = output + '<div id="quizResults"></div>';
 	$('#certificateBundleQuiz').html(output);
@@ -304,6 +304,18 @@ function changeQuestion() {
 	//}
 }
 
+function saveAnswer() {
+	console.log(currentQuestion);
+	quizStc[currentQuestion]['response'] = [];
+	$('#question' + currentQuestion + ' input').each(function() {
+		if(this.checked) {
+			quizStc[currentQuestion]['response'][quizStc[currentQuestion]['response'].length] = this.value.split(',');
+		}
+		// quizStc[currentQuestion]['response'][quizStc[currentQuestion]['response'].length-1]
+	});
+		// quizStc[' + i + '][\'response\'][quizStc[' + i + '][\'response\'].length-1] = this.value.split(\',\');
+}
+
 function calculateResults() {
 	tally = {
 		"Entrepreneur" : {"answers" : [], "total" : 0, "courses" : "<h3>Corporate / Business</h3> <p>Whether you're a start-up entrepreneur or a captain of industry, knowledge of the law is essential for success in business. Your career will intersect with the law in a variety of ways, and we have the perfect set of courses to prepare you for success no matter what path you choose.</p> <p>You should take:</p><p><strong><img alt='Entrepreneur' src='/sites/certificate/files/img/entrepreneurBundle.jpg' align='right' /><a href='https://certificate.queenslaw.ca/courses/introduction-to-canadian-law' target='_blank'>Introduction to Canadian Law - LAW 201/701</a>:</strong><br />Learn the basics of legal essentials that will serve you well for the rest of your career, including property, contracts and torts.<br /> <strong><a href='https://certificate.queenslaw.ca/courses/workplace-law' target='_blank'>Workplace Law- LAW 203/703</a>:</strong><br />If you're planning for success, you're planning to hire. Learn the ins and outs of the law as it applies to work.<br /> <strong><a href='https://certificate.queenslaw.ca/courses/corporate-law' target='_blank'>Corporate Law - LAW 204/704</a>:</strong><br />The obvious must for somebody with an interest in business. Get in-depth information about business structures, contracts, governance, and more.<br /> <strong><a href='https://certificate.queenslaw.ca/courses/intellectual-property-law' target='_blank'>Intellectual Property - LAW 206/706</a>:</strong><br />The modern business lives and dies on IP: learn about how to create and protect a brand with trademarks, and the basis for other intangible assets like copyrights, patents and trade secrets.</p>"},
@@ -313,16 +325,27 @@ function calculateResults() {
 		"Creative" : {"answers" : [], "total" : 0, "courses" : "<h3>Creative</h3><p>You’re born to make – whether it’s a life-changing song or a killer app. Learn how the law works (and doesn’t work) for Canada’s creative class. </p><p>You should take:</p><p><strong><img alt='Creative' src='/sites/certificate/files/img/creativeBundle.jpg' align='right' /><a href='https://certificate.queenslaw.ca/courses/intellectual-property-law' target='_blank'>Intellectual Property - LAW 206/706</a>:</strong><br />Protect your ideas! Learn about the “big three” of IP: patents, contracts, and trademarks, and how to properly protect your work while legally using that of others. <br /><strong><a href='https://certificate.queenslaw.ca/courses/introduction-to-canadian-law' target='_blank'>Introduction to Canadian Law - LAW 201/701</a>:</strong><br />A full toolkit of legal essentials for living in Canada, from legal research basics to essential contract and tort law. <br /><strong><a href='https://certificate.queenslaw.ca/courses/corporate-law' target='_blank'>Corporate Law - LAW 204/704</a>:</strong><br />From a side hustle to a start-up, understanding these business basics will set you up to either make the most of your own work, or effectively partner with those who can. <br /><strong><a href='https://certificate.queenslaw.ca/courses/workplace-law' target='_blank'>Workplace Law- LAW 203/703</a>:</strong><br />If you’re going places, you’re employing others to help you get there. Learn about the rights and responsibilities of employers and employees alike.</p>"}
 	};
 	for (var i=0;i<currentQuestion;i++) {
-		tally['Entrepreneur']['answers'][i] = quizStc[i]['response'][0];
-		tally['Changemaker']['answers'][i] = quizStc[i]['response'][1];
-		tally['Globetrotter']['answers'][i] = quizStc[i]['response'][2];
-		tally['Concerned Citizen']['answers'][i] = quizStc[i]['response'][3];
-		tally['Creative']['answers'][i] = quizStc[i]['response'][4];
-		tally['Entrepreneur']['total'] = tally['Entrepreneur']['total'] + parseInt(quizStc[i]['response'][0]);
-		tally['Changemaker']['total'] = tally['Changemaker']['total'] + parseInt(quizStc[i]['response'][1]);
-		tally['Globetrotter']['total'] = tally['Globetrotter']['total'] + parseInt(quizStc[i]['response'][2]);
-		tally['Concerned Citizen']['total'] = tally['Concerned Citizen']['total'] + parseInt(quizStc[i]['response'][3]);
-		tally['Creative']['total'] = tally['Creative']['total'] + parseInt(quizStc[i]['response'][4]);
+		for (var j=0;j<quizStc[i]['response'].length;j++) {
+			console.log('i=' + i + ' j=' + j);
+			for (key in tally) {
+				if (tally[key]['answers'].length == 0) {
+					tally[key]['answers'] = [];
+				}
+				if (!Array.isArray(tally[key]['answers'][i])) {
+					tally[key]['answers'][i] = [];
+				}
+			}
+			tally['Entrepreneur']['answers'][i][j] = quizStc[i]['response'][j][0];
+			tally['Changemaker']['answers'][i][j] = quizStc[i]['response'][j][1];
+			tally['Globetrotter']['answers'][i][j] = quizStc[i]['response'][j][2];
+			tally['Concerned Citizen']['answers'][i][j] = quizStc[i]['response'][j][3];
+			tally['Creative']['answers'][i][j] = quizStc[i]['response'][j][4];
+			tally['Entrepreneur']['total'] = tally['Entrepreneur']['total'] + parseInt(quizStc[i]['response'][j][0]);
+			tally['Changemaker']['total'] = tally['Changemaker']['total'] + parseInt(quizStc[i]['response'][j][1]);
+			tally['Globetrotter']['total'] = tally['Globetrotter']['total'] + parseInt(quizStc[i]['response'][j][2]);
+			tally['Concerned Citizen']['total'] = tally['Concerned Citizen']['total'] + parseInt(quizStc[i]['response'][j][3]);
+			tally['Creative']['total'] = tally['Creative']['total'] + parseInt(quizStc[i]['response'][j][4]);
+		}
 	}
 	winner = { "total" : 0 , "type" : ''}
 	for (personType in tally) {
