@@ -326,7 +326,6 @@ function calculateResults() {
 	};
 	for (var i=0;i<currentQuestion;i++) {
 		for (var j=0;j<quizStc[i]['response'].length;j++) {
-			console.log('i=' + i + ' j=' + j);
 			for (key in tally) {
 				if (tally[key]['answers'].length == 0) {
 					tally[key]['answers'] = [];
