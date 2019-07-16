@@ -305,7 +305,6 @@ function changeQuestion() {
 }
 
 function saveAnswer() {
-	console.log(currentQuestion);
 	quizStc[currentQuestion]['response'] = [];
 	$('#question' + currentQuestion + ' input').each(function() {
 		if(this.checked) {
