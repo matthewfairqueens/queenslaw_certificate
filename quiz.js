@@ -1,8 +1,4 @@
 currentQuestion = 0;
-
-
-
-
 function buildQuiz() {
 	output = '<style>.quizAnswers { margin-bottom: 25px; } #' + htmlID + ' { max-width: 1000px; margin: 0 auto;}</style>';
 	
@@ -22,7 +18,6 @@ function buildQuiz() {
 	changeQuestion();
 
 }
-
 function changeQuestion() {
 	$('.quizQuestion').hide();
 	$('#question'+currentQuestion).show();
@@ -31,7 +26,6 @@ function changeQuestion() {
 		calculateResults();
 	//}
 }
-
 function saveAnswer() {
 	quizStc[currentQuestion]['response'] = [];
 	$('#question' + currentQuestion + ' input').each(function() {
@@ -42,7 +36,6 @@ function saveAnswer() {
 	});
 		
 }
-
 function calculateResults() {
 	for (var i=0;i<currentQuestion;i++) {
 		for (var j=0;j<quizStc[i]['response'].length;j++) {
@@ -70,16 +63,12 @@ function calculateResults() {
 		$('#quizResults').show().html(scoreOutput);
 	}
 }
-
-
 function waitfor$() {
 	if (!window.$) {
 		setTimeout(waitfor$, 50);
 	} else {
-		$;
 		buildQuiz();
 	}
 }
-
 waitfor$();
 
