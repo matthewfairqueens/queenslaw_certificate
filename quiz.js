@@ -1,7 +1,6 @@
 currentQuestion = 0;
 function buildQuiz() {
 	output = '<style>.quizAnswers { margin-bottom: 25px; } #' + htmlID + ' { max-width: 1000px; margin: 0 auto;}</style>';
-	
 	for (var i=0;i<quizStc.length;i++) {
 		output = output + '<div class="quizQuestion" id="question' + i +'"><!-- <img alt="' + quizStc[i]["question"][0] + '" src="' + quizStc[i]["question"][1] + '" align="right" /> --><h3>Question ' + (i + 1) + ' of 10: ' + quizStc[i]["question"][0] + '</h3><div class="quizAnswers">';
 		for (var j=0;j<5;j++) {
@@ -16,15 +15,12 @@ function buildQuiz() {
 	output = output + '<div id="quizResults"></div>';
 	$('#' + htmlID).html(output);
 	changeQuestion();
-
 }
 function changeQuestion() {
 	$('.quizQuestion').hide();
 	$('#question'+currentQuestion).show();
 	$('.-next'+(currentQuestion-1)).show();
-	//if (currentQuestion==10) {
 		calculateResults();
-	//}
 }
 function saveAnswer() {
 	quizStc[currentQuestion]['response'] = [];
@@ -32,9 +28,7 @@ function saveAnswer() {
 		if(this.checked) {
 			quizStc[currentQuestion]['response'][quizStc[currentQuestion]['response'].length] = this.value.split(',');
 		}
-		
-	});
-		
+	});		
 }
 function calculateResults() {
 	for (var i=0;i<currentQuestion;i++) {
@@ -71,4 +65,3 @@ function waitfor$() {
 	}
 }
 waitfor$();
-
